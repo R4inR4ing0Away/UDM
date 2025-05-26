@@ -1,0 +1,791 @@
+/* General Setup */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+}
+
+.home-page, .product-page, .register-page, .signin-page, .product-detail-page, .about-page, .faq-page, .sizechart-page, .contact-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-img {
+  height: 50px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 48px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links .active {
+  background-color: #e0e0e0;
+}
+
+/* Buttons - Fixed alignment issues */
+.signin-button,
+.register-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  line-height: 1;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.signin-button {
+  white-space: nowrap;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.signin-button:hover {
+  background-color: #f0f0f0;
+}
+
+.register-button {
+  white-space: nowrap;
+  background: black;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin: 0;
+}
+
+.register-button:hover {
+  background-color: #333;
+}
+
+/* Fix .active style for buttons in navbar */
+.signin-button.active,
+.register-button.active {
+  background-color: #e0e0e0; /* or your preferred active color */
+  color: black;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: Keep register button active style consistent */
+.register-button.active {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+/* Home Page */
+.background-image {
+  flex: 1;
+  background: url('/background.png') no-repeat center center/cover;
+}
+
+/* Product Page */
+.product-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.brand-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brand-title h1 {
+  font-size: 2.5rem;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  margin: 0.2rem 0;
+  color: black;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Product Card */
+.product-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.product-code {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  width: 100%;
+  padding: 0.5rem;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #333;
+}
+
+/* Coming Soon Products */
+.coming-soon .add-to-cart,
+.coming-soon .register-button {
+  display: none;
+}
+
+.coming-text {
+  color: red;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Product Detail Page */
+.product-detail-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.product-detail-grid {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.product-detail-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-detail-info h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.product-detail-info .price {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.product-detail-info .color {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.size-selector {
+  margin-bottom: 1.5rem;
+}
+
+.size-selector label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.size-selector select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.buy-now-button {
+  width: 100%;
+  padding: 0.85rem;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.buy-now-button:hover {
+  background-color: #333;
+}
+
+.product-description h2 {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.product-description p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Centering Containers */
+.signin-page, .register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Page Headers */
+.signin-header, .register-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signin-header h1, .register-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: black;
+}
+
+.signin-header h2, .register-header h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #666;
+}
+
+/* Form Box */
+.signin-container, .register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Input Fields */
+.form-group {
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+/* Submit Buttons */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #333;
+}
+
+/* Adjust Register Button Under Password */
+.register-button {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.register-button:hover {
+  background-color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .signin-container, .register-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .signin-header h1, .register-header h1 {
+    font-size: 2rem;
+  }
+
+  .signin-header h2, .register-header h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Adjust navbar buttons for mobile */
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .signin-button, .register-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.contact-page h1, 
+.contact-page h2 {
+  margin-bottom: 20px;
+}
+
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-page input {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+}
+
+.contact-page button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-page button:hover {
+  background-color: #555;
+}
+
+/* About Page Styles */
+.about-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  background-color: #f5f5f5;
+}
+
+.about-hero {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+.about-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  line-height: 1.6;
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  font-weight: bold;
+  font-style: italic;
+  color: #333;
+}
+
+/* Quotes Section */
+.quotes-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quote-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quote-card blockquote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: black;
+  quotes: "“" "”";
+}
+
+.quote-card blockquote:before {
+  content: open-quote;
+}
+
+.quote-card blockquote:after {
+  content: close-quote;
+}
+
+.quote-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quote-card li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .about-content {
+    padding: 1.5rem;
+  }
+  
+  .quotes-section {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* About Page - FAQ Version */
+.about-page {
+  min-height: 100vh;
+  padding-top: 80px;
+  background-color: #f5f5f5;
+}
+
+.about-hero {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 2.8rem;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  color: black;
+  text-transform: uppercase;
+}
+
+.about-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: left;
+  line-height: 1.7;
+  border: 1px solid #e5e5e5;
+}
+
+.about-content p {
+  margin-bottom: 1.8rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.highlight {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.faq-card {
+  background: white;
+  padding: 1.8rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.faq-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.faq-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .highlight {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .about-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Product Detail Page - EXCLSV MDFCK Specific */
+.product-tag {
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+.product-tag span {
+  display: block;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.product-tag strong {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.product-color {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}
+
+/* Make the size selector match your design */
+.size-selector {
+  margin: 1.5rem 0;
+}
+
+.size-selector label {
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.size-selector select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .product-detail-image img {
+    max-width: 100%;
+  }
+}
+
+.products-heading-container {
+  background: #222;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  padding: 0.2rem 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.products-heading {
+  color: #fff;
+  font-family: 'Montserrat', Arial Black, sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  padding: 0 1rem 0.1rem 1rem;
+  margin: 0;
+}
