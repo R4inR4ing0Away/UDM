@@ -17,4 +17,4 @@ changes from mam elsa
 super duper cute ni jouland real not clickbait !!!
 
 FIGMA DOCS LINK:
-https://www.figma.com/board/s0lorJEU4JFa3PebOj67Zu/Untitled?node-id=0-1&p=f&t=yiU1jFV6WSoUKcdd-0
+https://www.figma.com/design/LDLZAavl8m9niZbcZIk19R/Brand?node-id=9-4602&t=FWjS3xZWIZLOZ2eQ-0
