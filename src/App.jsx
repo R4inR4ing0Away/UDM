@@ -34,7 +34,7 @@ const ChatbotIcon = () => (
   </div>
 );
 
-
+// Chatbot Modal Component
 const chatbotChoices = [
   {
     label: "What's new?",
